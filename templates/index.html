@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TotallyLoad</title>
+
+		<!-- Bootstrap -->
+		<link href="{{ url_for('static', filename='assets/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+		<style>
+			/*
+			 * Globals
+			 */
+
+			/* Links */
+			a,
+			a:focus,
+			a:hover {
+			  color: #fff;
+			}
+
+			/* Custom default button */
+			.btn-default,
+			.btn-default:hover,
+			.btn-default:focus {
+			  color: #333;
+			  text-shadow: none; /* Prevent inheritence from `body` */
+			  background-color: #fff;
+			  border: 1px solid #fff;
+			}
+
+
+			/*
+			 * Base structure
+			 */
+
+			html,
+			body {
+			  height: 100%;
+			  background-color: #333;
+			}
+			body {
+			  color: #fff;
+			  text-align: center;
+			  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+			  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+			}
+
+			/* Extra markup and styles for table-esque vertical and horizontal centering */
+			.site-wrapper {
+			  display: table;
+			  width: 100%;
+			  height: 100%; /* For at least Firefox */
+			  min-height: 100%;
+			}
+			.site-wrapper-inner {
+			  display: table-cell;
+			  vertical-align: top;
+			}
+			.cover-container {
+			  margin-right: auto;
+			  margin-left: auto;
+			}
+
+			/* Padding for spacing */
+			.inner {
+			  padding: 30px;
+			}
+
+
+			/*
+			 * Header
+			 */
+			.masthead-brand {
+			  margin-top: 10px;
+			  margin-bottom: 10px;
+			  font-size: 6em;
+			}
+
+			.masthead-nav > li {
+			  display: inline-block;
+			}
+			.masthead-nav > li + li {
+			  margin-left: 20px;
+			}
+			.masthead-nav > li > a {
+			  padding-right: 0;
+			  padding-left: 0;
+			  font-size: 16px;
+			  font-weight: bold;
+			  color: #fff; /* IE8 proofing */
+			  color: rgba(255,255,255,.75);
+			  border-bottom: 2px solid transparent;
+			}
+			.masthead-nav > li > a:hover,
+			.masthead-nav > li > a:focus {
+			  background-color: transparent;
+			  border-bottom-color: rgba(255,255,255,.25);
+			}
+			.masthead-nav > .active > a,
+			.masthead-nav > .active > a:hover,
+			.masthead-nav > .active > a:focus {
+			  color: #fff;
+			  border-bottom-color: #fff;
+			}
+
+			@media (min-width: 768px) {
+			  .masthead-brand {
+			    float: left;
+			  }
+			  .masthead-nav {
+			    float: right;
+			  }
+			}
+
+
+			/*
+			 * Cover
+			 */
+
+			.cover {
+			  padding: 0 20px;
+			}
+			.cover .btn-lg {
+			  padding: 10px 20px;
+			  font-weight: bold;
+			}
+
+
+			/*
+			 * Footer
+			 */
+
+			.mastfoot {
+			  color: #999; /* IE8 proofing */
+			  color: rgba(255,255,255,.5);
+			}
+
+
+			/*
+			 * Affix and center
+			 */
+
+			@media (min-width: 768px) {
+			  /* Pull out the header and footer */
+			  .masthead {
+			    position: fixed;
+			    top: 0;
+			  }
+			  .mastfoot {
+			    position: fixed;
+			    bottom: 0;
+			  }
+			  /* Start the vertical centering */
+			  .site-wrapper-inner {
+			    vertical-align: middle;
+			  }
+			  /* Handle the widths */
+			  .masthead,
+			  .mastfoot,
+			  .cover-container {
+			    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+			  }
+			}
+
+			@media (min-width: 992px) {
+			  .masthead,
+			  .mastfoot,
+			  .cover-container {
+			    width: 1200px;
+			  }
+
+			}
+
+
+			#input_url{
+			  	width: 100%;
+			  	height: 60px;
+			  	font-size: 2em;
+			  }
+
+			  #input_button{
+			  	width: 100px;
+			  	height: 60px;
+			  }
+
+			  .input-group{
+			  	width: 100%;
+			  }
+
+			  .media_thumbnail{
+			  	width: 100px;
+			  }
+
+			#log_book{
+			  	margin-top: 100px;
+			  }
+
+			  .masthead-nav > li > a{
+			  	font-size: 1.5em;
+			  }
+
+			  .tooltip-inner{
+			  	font-size: 1.3em;
+			  }
+
+			  #social_buttons{
+			  	margin-top: 20px;
+			  	margin-left:30px; 
+			  }
+
+			  /* This gets Google to fall into place */
+			.social {
+				font-size: 1px;
+			}
+			 
+			/* This gets Facebook to fall into place */
+			.social iframe {
+				vertical-align: middle;
+			}
+			 
+			/* Set an optional width for your button wrappers */
+			.social span {
+				display: inline-block;
+				width: 110px;
+			}
+			 
+			/* Adjust the widths individually if you like */
+			.social .google {
+				width: 75px;
+				margin-right: 15px;
+			}
+		</style>
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+		<div class="site-wrapper">
+
+			<div class="site-wrapper-inner">
+
+
+				<div class="cover-container">
+
+
+<!-- 					<div class="masthead clearfix">
+						<div class="inner">
+							<h1 class="">TotallyLoad</h1>
+						</div>
+					</div> -->
+
+
+					<div class="masthead clearfix">
+						<div class="inner">
+							<h3 class="masthead-brand">TotallyLoad</h3>
+							
+							<ul class="nav masthead-nav">
+								<li class="active"><a href="#">Accueil</a></li>
+								<li><a href="#">Compatiblité</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+
+
+
+					<div class="inner cover">
+		
+							<!-- <div class="col-lg-12">Copiez l'url de la vidéo demandée dans cette barre.</div> -->
+
+							<form class="input-group" method="post" action="download">
+
+									<input type="text" id="input_url" name="media_url" placeholder="Copiez l'url de la vidéo demandée dans cette barre." class="form-control">
+									<span class="input-group-btn">
+										<button class="btn btn-primary" id="input_button" type="submit">Go!</button>
+									</span>
+							
+							</form><!-- /input-group -->
+						<!-- </div>/.col-lg-6 -->
+
+					</div>
+
+
+					<div id="log_book">
+
+						<a type="button" class="tltp btn btn-default btn-lg" href="#" data-toggle="tooltip" data-placement="left" title="Télécharger que le son.">Son</a> 
+						&#160;&#160;&#160;&#160;
+						<a type="button" class="tltp btn btn-default btn-lg" href="" data-toggle="tooltip" data-placement="bottom" title="Télécharger que l'image.">Image</a> 
+						&#160;&#160;&#160;&#160;
+						<a type="button" class="tltp btn btn-default btn-lg" href="" data-toggle="tooltip" data-placement="right" title="Télécharger le son + vidéo.">Vidéo</a>
+
+
+					</div>
+
+
+					<div id="social_buttons">
+						<div class="social">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="totallyload">Tweet</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+							<span class="google">
+								<!-- Place this tag where you want the +1 button to render. -->
+								<div class="g-plusone"></div>
+
+								<!-- Place this tag after the last +1 button tag. -->
+								<script type="text/javascript">
+								  (function() {
+								    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+								    po.src = 'https://apis.google.com/js/platform.js';
+								    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+								  })();
+								</script>
+							</span>
+							—-
+							<span class="Facebook">
+								<iframe src="https://www.facebook.com/plugins/like.php?href=http://totallyload.com/&amp;show_faces=false&amp;layout=button_count" scrolling="no" frameborder="0" style="height: 21px; width: 100px" allowTransparency="true"></iframe>
+							</span>
+						</div>
+						
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="{{ url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="{{ url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+		<script type="text/javascript">
+		    $(function () {
+		        $(".tltp").tooltip();
+		    });
+		</script>
+	</body>
+</html>
