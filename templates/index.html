@@ -206,10 +206,6 @@
 			  	font-size: 1.3em;
 			  }
 
-			  #social_buttons{
-			  	margin-top: 20px;
-			  	margin-left:30px; 
-			  }
 
 			  /* This gets Google to fall into place */
 			.social {
@@ -231,6 +227,10 @@
 			.social .google {
 				width: 75px;
 				margin-right: 15px;
+			}
+
+			#download_buttons {
+				margin: 0;
 			}
 		</style>
 
@@ -269,7 +269,7 @@
 
 					<div class="masthead clearfix">
 						<div class="inner">
-							<h3 class="masthead-brand">TotallyLoad</h3>
+							<h3 class="masthead-brand">TotallyLoad.com</h3>
 							
 							<ul class="nav masthead-nav">
 								<li class="active"><a href="#">Accueil</a></li>
@@ -289,7 +289,23 @@
 
 									<input type="text" id="input_url" name="media_url" placeholder="Copiez l'url de la vidéo demandée dans cette barre." class="form-control">
 									<span class="input-group-btn">
-										<button class="btn btn-primary" id="input_button" type="submit">Go!</button>
+
+										<!-- Split button -->
+										<div class="btn-group">
+										  <button type="button" class="btn btn-danger">Action</button>
+										  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+										    <span class="caret"></span>
+										    <span class="sr-only">Toggle Dropdown</span>
+										  </button>
+										  <ul class="dropdown-menu" role="menu">
+										    <li><a href="#">Action</a></li>
+										    <li><a href="#">Another action</a></li>
+										    <li><a href="#">Something else here</a></li>
+										    <li class="divider"></li>
+										    <li><a href="#">Separated link</a></li>
+										  </ul>
+										</div>
+										
 									</span>
 							
 							</form><!-- /input-group -->
@@ -298,20 +314,18 @@
 					</div>
 
 
-					<div id="log_book">
+					<div id="log_book" class="col-lg-12">
 
-						<a type="button" class="tltp btn btn-default btn-lg" href="#" data-toggle="tooltip" data-placement="left" title="Télécharger que le son.">Son</a> 
-						&#160;&#160;&#160;&#160;
-						<a type="button" class="tltp btn btn-default btn-lg" href="" data-toggle="tooltip" data-placement="bottom" title="Télécharger que l'image.">Image</a> 
-						&#160;&#160;&#160;&#160;
-						<a type="button" class="tltp btn btn-default btn-lg" href="" data-toggle="tooltip" data-placement="right" title="Télécharger le son + vidéo.">Vidéo</a>
+							<a type="button" class="tltp btn btn-default btn-lg" href="#" data-toggle="tooltip" data-placement="left" title="Télécharger que le son.">Son</a> 
+							&#160;&#160;&#160;&#160;
+							<a type="button" class="tltp btn btn-default btn-lg" href="" data-toggle="tooltip" data-placement="bottom" title="Télécharger que l'image.">Image</a> 
+							&#160;&#160;&#160;&#160;
+							<a type="button" class="tltp btn btn-default btn-lg" href="" data-toggle="tooltip" data-placement="right" title="Télécharger le son + vidéo.">Vidéo</a>
 
+							&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+							&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+							&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;							
 
-					</div>
-
-
-					<div id="social_buttons">
-						<div class="social">
 							<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="totallyload">Tweet</a>
 							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 							<span class="google">
@@ -327,13 +341,14 @@
 								  })();
 								</script>
 							</span>
-							—-
+
 							<span class="Facebook">
 								<iframe src="https://www.facebook.com/plugins/like.php?href=http://totallyload.com/&amp;show_faces=false&amp;layout=button_count" scrolling="no" frameborder="0" style="height: 21px; width: 100px" allowTransparency="true"></iframe>
 							</span>
-						</div>
-						
+
+
 					</div>
+
 
 				</div>
 
