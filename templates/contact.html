@@ -271,70 +271,42 @@
 							<h3 class="masthead-brand">TotallyLoad.com</h3>
 							
 							<ul class="nav masthead-nav">
-								<li class="active"><a href="#">Accueil</a></li>
+								<li><a href="./">Accueil</a></li>
 								<li><a href="compatibilite">Compatiblité</a></li>
-								<li><a href="contact">Contact</a></li>
+								<li class="active"><a href="contact">Contact</a></li>
 							</ul>
 						</div>
 					</div>
 
 
 
-					<div class="inner cover">
+					<div class="inner cover" style="padding:0 100px">
 		
-							<!-- <div class="col-lg-12">Copiez l'url de la vidéo demandée dans cette barre.</div> -->
+						<form role="form">
 
-							<form class="input-group" method="post" action="download">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Prénom</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Jules">
+								<label for="exampleInputEmail1">Nom</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="DUPONT">
+							</div>
 
-									<input type="text" id="input_url" name="media_url" placeholder="Copiez l'url de la vidéo souhaitée dans cette barre." class="form-control">
-									<span class="input-group-btn">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Adresse mail</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email....">
+							</div>
 
-
-									<!-- Large button group -->
-									<div class="btn-group">
-									<button class="btn btn-primary btn-lg dropdown-toggle" style="height:60px; width:215px" type="button" data-toggle="dropdown">
-									Télécharger <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Télécharger le son + image</a></li>
-										<li><a href="#">Télécharger le son</a></li>
-										<li><a href="#">Télécharger l'image</a></li>
-									</ul>
-									</div>
-
-
-									</span>
-							
-							</form><!-- /input-group -->
-						<!-- </div>/.col-lg-6 -->
+							<div class="form-group">
+							<label for="exampleInputEmail1">Question(s)</label>
+							<textarea class="form-control" rows="7" placeholder="Message..."></textarea>
+							</div>
+							<button type="submit" class="btn btn-default">Envoyer</button>
+						</form>
 
 					</div>
 
 
-					<div id="log_book" class="col-lg-12">
 
-							<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="totallyload">Tweet</a>
-							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-							<span class="google">
-								<!-- Place this tag where you want the +1 button to render. -->
-								<div class="g-plusone"></div>
-
-								<!-- Place this tag after the last +1 button tag. -->
-								<script type="text/javascript">
-								  (function() {
-								    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-								    po.src = 'https://apis.google.com/js/platform.js';
-								    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-								  })();
-								</script>
-							</span>
-
-							<span class="Facebook">
-								<iframe src="https://www.facebook.com/plugins/like.php?href=http://totallyload.com/&amp;show_faces=false&amp;layout=button_count" scrolling="no" frameborder="0" style="height: 21px; width: 100px" allowTransparency="true"></iframe>
-							</span>
-
-
-					</div>
 
 
 				</div>
@@ -343,14 +315,5 @@
 
 		</div>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="{{ url_for('static', filename='assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="{{ url_for('static', filename='assets/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-		<script type="text/javascript">
-		    $(function () {
-		        $(".tltp").tooltip();
-		    });
-		</script>
 	</body>
 </html>

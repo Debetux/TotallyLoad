@@ -27,8 +27,18 @@ def download():
     context = dict()
 
     context['req'] = simplejson.loads(download_link_request.text)
-       
+
     return render_template('index.html', context = context)
+
+
+@app.route('/compatibilite', methods=['GET', 'POST'])
+def compatibilite():
+    return render_template('compatibilite.html')
+
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    return render_template('contact.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8801, debug=True)
